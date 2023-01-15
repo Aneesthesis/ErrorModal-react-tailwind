@@ -21,7 +21,7 @@ function App() {
     console.log(entries);
   }
   return (
-    <div className="box-border bg-gray-800 h-screen z-10">
+    <div className="box-border h-screen bg-gray-800 z-10">
       <h1 className=" text-center text-2xl text-white font-thin py-4 hover:underline cursor-not-allowed">
         Id Register
       </h1>

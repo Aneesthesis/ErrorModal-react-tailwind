@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import ErrorModal from "./ErrorModal";
 
 function EntryForm(props) {
-  const [blankEntry, setBlankEntry] = useState(false);
+  const [isblankEntry, setBlankEntry] = useState(false);
   const [userInput, setUserInput] = useState({
     name: "",
     age: "",
@@ -27,12 +27,17 @@ function EntryForm(props) {
       return;
     }
     props.onAddEntry(userInput);
+    setBlankEntry(false);
     setUserInput({ name: "", age: "" });
   };
 
+  function closeModalHandler() {
+    setBlankEntry(false);
+  }
+
   return (
     <Fragment>
-      <ErrorModal />
+      <ErrorModal isActive={isblankEntry} onClick={closeModalHandler} />
       <form
         onSubmit={formSubmitHandler}
         className=" flex items-center m-auto flex-col space-y-2 w-1/3 bg-yellow-300 shadow-sm shadow-black rounded-sm  text-white"
